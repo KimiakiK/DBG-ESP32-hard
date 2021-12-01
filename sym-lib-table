@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name DBG-ESP32)(type Legacy)(uri ${KIPRJMOD}/DBG-ESP32.lib)(options "")(descr ""))
+)

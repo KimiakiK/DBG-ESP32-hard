@@ -1,0 +1,99 @@
+
+(rules PCB DBG-ESP32
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 2169)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.4)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.7)
+    )
+  )
+  (rule
+    (width 203.2)
+    (clear 203.4)
+    (clear 101.6 (type smd_to_turn_gap))
+    (clear 50.8 (type smd_smd))
+  )
+  (padstack "Via[0-1]_609.6:304.8_um"
+    (shape
+      (circle F.Cu 609.6 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 609.6 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_609.6:304.8_um" "Via[0-1]_609.6:304.8_um" default
+  )
+  (via 
+    "Via[0-1]_609.6:304.8_um-kicad_default" "Via[0-1]_609.6:304.8_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_609.6:304.8_um-Power" "Via[0-1]_609.6:304.8_um" Power
+  )
+  (via_rule
+    default "Via[0-1]_609.6:304.8_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_609.6:304.8_um-kicad_default"
+  )
+  (via_rule
+    Power "Via[0-1]_609.6:304.8_um-Power"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 203.2)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "FT_OSCI" "FT_OSCO" "Net-(C6-Pad1)" "Net-(C7-Pad1)" EN "Net-(D2-Pad2)" "Net-(D3-Pad2)" "FT_LED_RX"
+    "Net-(D4-Pad2)" "FT_LED_TX" "Net-(J1-Pad4)" "USB_DP" "USB_DM" "FT_TMS" "FT_TDI" "FT_TCK"
+    "FT_TDO" "FT_RXD" "FT_TXD" "FT_RTS" "Net-(Q1-Pad1)" "FT_DTR" "Net-(Q2-Pad1)" "FT_EECS"
+    "Net-(R2-Pad2)" "FT_EEDATA" "FT_EECLK" "Net-(R5-Pad1)" "Net-(R6-Pad1)" "Net-(U3-Pad21)" "Net-(U3-Pad22)" "Net-(U3-Pad23)"
+    "Net-(U3-Pad24)" "Net-(U3-Pad26)" "Net-(U3-Pad27)" "Net-(U3-Pad28)" "Net-(U3-Pad29)" "Net-(U3-Pad30)" "Net-(U3-Pad32)" "Net-(U3-Pad33)"
+    "Net-(U3-Pad34)" "Net-(U3-Pad36)" "Net-(U3-Pad41)" "Net-(U3-Pad44)" "Net-(U3-Pad45)" "Net-(U3-Pad46)" "Net-(U3-Pad48)" "Net-(U3-Pad52)"
+    "Net-(U3-Pad53)" "Net-(U3-Pad57)" "Net-(U3-Pad58)" "Net-(U3-Pad59)" "Net-(U3-Pad60)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 203.2)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class Power
+    GND +5V +3V3 +1V8 BOOT "Net-(D1-Pad2)" "Net-(J1-Pad1)"
+    (clearance_class Power)
+    (via_rule Power)
+    (rule
+      (width 203.2)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
